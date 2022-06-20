@@ -2,7 +2,7 @@
 native import export JS example
 
  ## Goals
- Learn how JS framework like vuejs, Angular or React works.
+ Learn how JS framework works like vuejs, Angular or React.
  
  - Import native js module
  - Export native js modul
