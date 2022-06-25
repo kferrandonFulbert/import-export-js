@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JS Import Export</title>
+  <meta name="description" content="Import export todo app">
+  <meta name="author" content="Kevin FERRANDON">
+  <!-- importer les scripts d'import en forcant le type=module sinon l'utilisation des imports ne marchera pas-->
+  <style>
+    /* Style the header */
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 5px;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+.container{
+
+    background-color: #cce5ff;
+    color: #f44336;
+}
+h1{
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 30px 40px;
+  color: #f44336;
+  text-align: center;
+}
+  </style>
+</head>
+<body>
+  <!-- votre contenu et surtout les containers pour vos modules... -->
+  <div id="myDIV" class="header">
+    <h2 style="margin:5px">Add ToDo</h2>
+    <form><input type="text" id='aaction' placeholder="Categorie"/><br><input type="text" id="info" placeholder="Votre Tache"><a class='addBtn' id='addBtn' href="#" >Ajouter</a></form>
+  </div>
+  <div class="container">
+  <h1>Todo List</h1>  
+  <div id="lst">
+
+    </div>
+    <a href="#" id="refresh" class="addBtn" >Refresh</a>
+  </div>
+    <script type="module">
+
+    import {Todo} from './modules/todoPoo.js';
+    var maTodo = new Todo;
+    maTodo.toDoList('lst'); 
+    document.getElementById("addBtn").addEventListener("click", addATodo);
+    document.getElementById("refresh").addEventListener("click", refresh);
+
+        function addATodo(){
+            let act=document.getElementById('aaction').value;
+            maTodo.addTodo(act, document.getElementById('info').value);
+            maTodo.toDoList('lst'); 
+        }
+    
+        function refresh(){
+            maTodo.toDoList('lst'); 
+        }
+    
+    </script>
+    <script type="module">
+   /*     
+   
+   import { todo, toDoList,addTodo, deleteTodo } from './modules/todo.js';
+
+        toDoList('lst');
+        document.getElementById("addBtn").addEventListener("click", addATodo);
+      
+        function addATodo(){
+            let act=document.getElementById('aaction').value;
+            addTodo(act, document.getElementById('info').value);
+            toDoList('lst'); 
+        }
+    
+        function refresh(){
+            toDoList('lst'); 
+        }
+    */
+    </script>
+</body>
+</html>

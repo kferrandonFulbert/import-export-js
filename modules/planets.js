@@ -1,18 +1,22 @@
 // Le module peut être n'importe qu'elle variable.
 // une fonction ou encore un classe.
-export let Planets = ["Terre", "Mars", "Saturne", "Venus"];
+ let Planets = ["Terre", "Mars", "Saturne", "Venus"];
 
 
  /*export function Planets(){
     return ["Terre", "Mars", "Saturne", "Venus"];
  }*/
- /*
- export class Planet{  
+  class unePlanet{  
     constructor(aName){
-        name:aName
+        this.name=aName;
     }
     getName(){
         return this.name;
     }
+    printName(){
+        alert(this.name);
+    }
 }
-*/
+
+
+export {Planets, unePlanet}

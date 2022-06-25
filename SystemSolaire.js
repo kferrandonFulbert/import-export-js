@@ -1,10 +1,14 @@
 // mon system solaire est le point central de mon application js
 // il fait appel au module qu'il a besoin pour fonctionner
-import { Planets } from './modules/planets.js';
+import { Planets, unePlanet } from './modules/planets.js';
 import { Naines } from './modules/naines.js';
 
 let sysSol = document.getElementById('planets');
 let naines = document.getElementById('naines');
+
+let Terre = new unePlanet('Terre');
+console.log(Terre);
+
 /*
 Rappel des boucles for en JS
 sysSol.innerHTML += "<ul>";
